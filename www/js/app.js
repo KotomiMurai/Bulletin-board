@@ -38,6 +38,25 @@ function addTodo(camera_url) {
       name + " " + 
       year + "/" + month + "/" + day + " " + hour + ":" + minutes + "<p>" +
       body + "</p></li>"
-      )
+      );
+    //返信用のボックス追加
+    $("#todo-list").append(
+        "<ul><li>" + 
+        "<div id='rep-box'><input id='rep-name' type='text' size=10 placeholder='名前'>" + 
+        "<textarea id='rep-comment'  style='height: 2em' placeholder='コメント'></textarea>" + 
+        "<input id='add-button' type='button' value='返信' onclick='addReply()'></div>" + 
+        "</li></ul>"
+    );
+
     $("#todo-list").listview('refresh');
 };
+
+function addReply(){
+  var rep_name = $("#rep-name").val();
+  var rep_comment = $("#rep-comment").val();
+  $("#rep-box").before(
+    "<ul><li>" + 
+    "<p>" + rep_name + "：" + rep_comment + "</p>" + 
+    "</li></ul>"
+  );
+}
