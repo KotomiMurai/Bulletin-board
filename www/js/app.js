@@ -40,4 +40,9 @@ function addTodo(camera_url) {
       body + "</p></li>"
       )
     $("#todo-list").listview('refresh');
+
+    //初期化
+    $("#todo-title").val("");
+    $("#todo-name").val("");
+    $("#todo-body").val("");
 };
